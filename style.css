@@ -1,234 +1,256 @@
+/* Reset e configurações globais */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  body {
-    background-color: black;
-    color: white;
-    font-size: 16px;
-    /* overflow: hidden; */
-  }
-  
-  header {
-    position: fixed;
-    width: 80vw;
-    transform: translate(-50%);
-    left: 50%;
-    display: grid;
-    align-items: center;
-    grid-template-columns: 1fr 600px;
-    gap: 15%;
-    z-index: 2;
-  
-    & img {
-      width: 150px;
-    }
-  
-    & nav {
-      & ul {
-        display: grid;
-        grid-template-columns: repeat(3, 200px);
-      }
-    }
-  }
-  
-  section {
-    background-image: radial-gradient(rgb(255, 0, 234), black);
-    height: 100vw;
-    position: relative;
-  
-    & .list {
-      width: 70vw;
-      height: 100%;
-      margin: auto;
-      position: relative;
-  
-      & .item {
-        position: absolute;
-        inset: 0;
-        opacity: 0;
-  
-        & .car-img {
-          position: absolute;
-          /* Altura da imagem */
-          top: 30%;
-          transform: translateY(-50%);
-          width: 70%;
-  
-          & img {
-            width: 100%;
-            transform: rotate(-20deg);
-          }
-        }
-  
-        & .content {
-          position: absolute;
-          bottom: 10%;
-          right: 100px;
-          width: 70%;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: end;
-          gap: 20px;
-  
-          & .car-information {
-            font-weight: bold;
-          }
-  
-          & h2 {
-            font-size: 2em;
-            line-height: 1em;
-          }
-  
-          & .description {
-            color: gray;
-            font-size: 12px;
-            text-align: right;
-            max-width: 400px;
-          }
-  
-          & .information {
-            border-radius: 30px;
-            height: 35px;
-            width: 125px;
-            text-transform: uppercase;
-            border: 2px solid white;
-            background-color: yellowgreen;
-            cursor: pointer;
-            font-weight: bold;
-          }
-        }
-      }
-  
-      &::before {
-        content: "";
-        position: absolute;
-        height: 200px;
-        width: 100%;
-        top: 30%;
-        border-top: 1px solid white;
-      }
-    }
-  
-    .arrows {
-      width: 70vw;
-      position: absolute;
-      top: 29%;
-      left: 50%;
-      transform: translate(-50%, -25%);
-      display: flex;
-      justify-content: space-between;
-  
-      /* Essa tag pega o primeiro filho */
-      & button:nth-child(1) {
-        & img {
-          scale: -1;
-        }
-      }
-  
-      & button {
-        top: 60%;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        border: none;
-        cursor: pointer;
-      }
-  
-      & img {
-        width: 30px;
-        margin-top: 4px;
-      }
-  
-      & img:hover {
-        background-color: rgb(255, 0, 162);
-        border-radius: 50%;
-      }
-    }
-  
-    .indicator {
-      position: absolute;
-      top: 30%;
-      left: 50%;
-      transform: translateX(-50%);
-      height: 200px;
-      width: 90vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: end;
-      gap: 15px;
-  
-      & .number {
-        font-size: 5em;
-      }
-  
-      & ul {
-        display: flex;
-        gap: 10px;
-  
-        & li {
-          width: 25px;
-          height: 5px;
-          background-color: violet;
-          transition: 0.5s;
-        }
-  
-        & .active {
-          background-color: black;
-        }
-      }
-    }
-  }
-  
-  section {
-    & .list {
-      & .item {
-        transform: translateX(100vw);
-        transition: 0.5s;
-  
-        & .car-img {
-          & img {
-            transform: rotate(0);
-            transition: 0.5s;
-            transition-delay: 0.3s;
-          }
-        }
-      }
-  
-      & .content {
-        & .car-information,
-        h2,
-        .description,
-        .information {
-          transform: translateX(200px);
-          transition: 0.7s;
-          transition-delay: 0.3s;
-        }
-  
-        & h2 {
-          transition-delay: 0.5s;
-        }
-  
-        & .description {
-          transition-delay: 0.9s;
-        }
-  
-        & .information {
-          transition-delay: 1.2s;
-        }
-      }
-    }
-  
-    & .active {
-      transform: translateX(0);
-      transition: 0.;
-      opacity: 1;
-    }
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilo base do body */
+body {
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  overflow: hidden;
+}
+
+/* HEADER FIXO */
+header {
+  position: fixed;
+  width: 80vw;
+  transform: translateX(-50%);
+  left: 50%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 600px;
+  gap: 15%;
+  z-index: 2;
+}
+
+/* Logo do header */
+header img {
+  width: 150px;
+}
+
+/* Navegação no header */
+header nav ul {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+}
+
+/* SECTION PRINCIPAL COM FUNDO */
+section {
+  background-image: radial-gradient(rgb(255, 0, 234), black);
+  height: 100vw;
+  position: relative;
+}
+
+/* Lista de slides */
+section .list {
+  width: 70vw;
+  height: 100%;
+  margin: auto;
+  position: relative;
+}
+
+/* Cada item (slide) começa invisível e fora da tela à direita */
+section .list .item {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateX(100vw);
+  transition: 0.5s;
+}
+
+/* Quando ativo, fica visível e centralizado */
+section .list .item.active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: 0.5s;
+}
+
+/* Imagem do carro posicionada ao centro verticalmente */
+section .list .item .car-img {
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  width: 70%;
+}
+
+/* O carro começa reto (0deg) */
+section .list .item .car-img img {
+  width: 100%;
+  transform: rotate(0deg);
+  transition: 0.5s;
+  transition-delay: 0.3s;
+}
+
+/* Quando o slide está ativo, o carro inclina */
+section .list .item.active .car-img img {
+  transform: rotate(-20deg);
+}
+
+/* Conteúdo textual do slide (informações do carro) */
+section .list .item .content {
+  position: absolute;
+  bottom: 10%;
+  right: 100px;
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  gap: 20px;
+}
+
+/* Animações dos textos ao entrarem */
+section .list .item .content .car-information,
+section .list .item .content h2,
+section .list .item .content .description,
+section .list .item .content .information {
+  transform: translateX(200px);
+  transition: 0.7s;
+  transition-delay: 0.3s;
+}
+
+/* Animações ao ativar o slide */
+section .list .item.active .content .car-information {
+  transform: translateX(0);
+}
+
+section .list .item.active .content h2 {
+  transform: translateX(0);
+  transition-delay: 0.5s;
+}
+
+section .list .item.active .content .description {
+  transform: translateX(0);
+  transition-delay: 0.9s;
+}
+
+section .list .item.active .content .information {
+  transform: translateX(0);
+  transition-delay: 1.2s;
+}
+
+/* Título */
+section .list .item .content h2 {
+  font-size: 2em;
+  line-height: 1em;
+}
+
+/* Descrição */
+section .list .item .content .description {
+  color: gray;
+  font-size: 12px;
+  text-align: right;
+  max-width: 400px;
+}
+
+/* Botão de informação */
+section .list .item .content .information {
+  border-radius: 30px;
+  height: 35px;
+  width: 125px;
+  text-transform: uppercase;
+  border: 2px solid white;
+  background-color: yellowgreen;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Linha branca abaixo do carro */
+section .list::before {
+  content: "";
+  position: absolute;
+  height: 200px;
+  width: 100%;
+  top: 30%;
+  border-top: 1px solid white;
+}
+
+/* Setas de navegação */
+section .arrows {
+  width: 70vw;
+  position: absolute;
+  top: 29%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Botões das setas */
+section .arrows button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+/* Espelha a seta da esquerda */
+section .arrows button:nth-child(1) img {
+  scale: -1;
+}
+
+/* Tamanho das imagens das setas */
+section .arrows img {
+  width: 30px;
+  margin-top: 4px;
+}
+
+/* Hover nas setas */
+section .arrows img:hover {
+  background-color: rgb(255, 0, 162);
+  border-radius: 50%;
+}
+
+/* Indicadores de página (slides) */
+section .indicator {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 200px;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 15px;
+}
+
+/* Número grande no indicador */
+section .indicator .number {
+  font-size: 5em;
+}
+
+/* Lista dos indicadores (barrinhas) */
+section .indicator ul {
+  display: flex;
+  gap: 10px;
+}
+
+/* Estilo das barrinhas */
+section .indicator ul li {
+  width: 25px;
+  height: 5px;
+  background-color: violet;
+  transition: 0.5s;
+}
+
+/* Quando ativo, a barrinha muda de cor */
+section .indicator ul li.active {
+  background-color: black;
+}
+
+/* Classe utilitária que centraliza e mostra */
+.active {
+  transform: translateX(0);
+  transition: 0.5s;
+  opacity: 1;
+}
+
+/* (Removido conteúdo repetido/duplicado desnecessário do seu código anterior) */
